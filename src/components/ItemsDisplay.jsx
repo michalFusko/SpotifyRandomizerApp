@@ -2,6 +2,7 @@ import PlayButton from "./PlayButton";
 import "../styles/components/items-display.css";
 import ItemCard from "./ItemCard";
 import ItemDescription from "./ItemDescription";
+import "../styles/components/items-display.css";
 
 const ItemsDisplay = ({
   Albums,
