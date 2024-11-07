@@ -2,7 +2,7 @@ import "../styles/components/login.css";
 
 const Login = () => {
   const YOUR_CLIENT_ID = "11be729c8a7142abba52c439912f4892";
-  const YOUR_REDIRECT_URI = "https://spotify-randomizer-app.vercel.app/";
+  const YOUR_REDIRECT_URI = "https://randomizer-app.vercel.app/";
   const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${YOUR_CLIENT_ID}&response_type=token&redirect_uri=${YOUR_REDIRECT_URI}&scope=user-library-read`;
 
   const redirectToSpotify = () => {
