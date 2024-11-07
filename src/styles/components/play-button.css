@@ -1,0 +1,57 @@
+.play-btn-container {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.play-btn-icon {
+  color: var(--clr-green);
+  font-size: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.play-btn-backround {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80%;
+  height: 80%;
+  background-color: var(--clr-black);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* 2xl */
+/*@media (max-width: 1536px) {
+
+}*/
+
+/* xl */
+/*@media (max-width: 1280px) {
+
+}*/
+
+/* lg */
+/*@media (max-width: 1024px) {
+
+}*/
+
+/* md */
+/*@media (max-width: 768px) {
+
+}*/
+
+/* sm */
+@media (max-width: 640px) {
+  .play-btn-container {
+    margin-top: 20px;
+  }
+}
+
+/* xs */
+/*@media (max-width: 475px) {
+
+}*/
