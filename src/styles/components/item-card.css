@@ -65,6 +65,12 @@
     width: 350px;
     height: 550px;
   }
+  .card-image {
+    min-height: 350px;
+  }
+  .card-content-container {
+    min-height: 200px;
+  }
   .card-typography {
     font-size: 20px !important;
   }
@@ -75,12 +81,16 @@
   .card-container {
     width: 250px;
     height: 450px;
+    margin: 10px 0px 0 0;
+  }
+  .card-image {
+    min-height: 300px;
+  }
+  .card-content-container {
+    min-height: 150px;
   }
   .card-typography {
     font-size: 15px !important;
-  }
-  .card-container {
-    margin: 10px 0px 0 0;
   }
   .card-content {
     padding: 5px 0 0 0 !important;
@@ -89,12 +99,3 @@
     padding: 0;
   }
 }
-
-/* sm */
-@media (max-width: 640px) {
-}
-
-/* xs */
-/*@media (max-width: 475px) {
-
-}*/
