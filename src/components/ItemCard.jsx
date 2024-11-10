@@ -13,22 +13,22 @@ export default function ItemCard({
   Playlists,
   Podcasts,
   Artists,
-  preferenceType,
+  preferenceTypeRes,
   randomItem,
   reloadItems,
 }) {
   const nameOfCreator = () => {
     if (
-      preferenceType &&
-      preferenceType == Albums &&
+      preferenceTypeRes &&
+      preferenceTypeRes == Albums &&
       randomItem?.artists?.[0]
     ) {
       return randomItem.artists[0].name;
-    } else if (preferenceType && preferenceType == Playlists) {
+    } else if (preferenceTypeRes && preferenceTypeRes == Playlists) {
       return `Created by:${randomItem.owner?.display_name || "undefined"}`;
     } else if (
-      preferenceType &&
-      preferenceType == Podcasts &&
+      preferenceTypeRes &&
+      preferenceTypeRes == Podcasts &&
       randomItem.show
     ) {
       return randomItem.show.publisher;

@@ -59,7 +59,7 @@
 }*/
 
 /* lg */
-@media (max-width: 1024px) {
+@media (max-width: 1024px), (max-height: 830px) {
   .card-container {
     margin: 50px 0px 0 0;
     width: 350px;
@@ -71,7 +71,7 @@
 }
 
 /* md */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 670px) {
   .card-container {
     width: 250px;
     height: 450px;

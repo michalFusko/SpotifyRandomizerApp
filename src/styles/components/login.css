@@ -58,49 +58,57 @@
     0px 10px 10px rgba(25, 20, 20, 0.25),
     5px 0px 15px rgba(25, 20, 20, 0.25),
     -10px 0px 15px rgba(25, 20, 20, 0.25);
-  font-size: 3rem;
+  font-size: 48px;
   padding: 4px 16px 4px 16px;
   cursor: pointer;
 }
 
-/* 2xl */
-@media (max-width: 1536px) {
-}
-
-/* xl */
-@media (max-width: 1280px) {
+@media (max-width: 1280px), (max-height: 700px) {
   .login-introduction {
     margin: 50px 150px 50px 150px;
     font-size: 25px;
     word-spacing: 3px;
   }
 
-  .login-introduction-strong {
+  .login-introduction strong {
     font-size: 30px;
   }
 }
 
-/* lg */
 @media (max-width: 1024px) {
   .login-introduction {
     margin: 50px 100px 50px 100px;
   }
 }
 
-/* md */
 @media (max-width: 768px) {
   .login-introduction {
     margin: 50px 25px 50px 25px;
   }
 }
 
-/* sm */
 @media (max-width: 640px) {
   .login-content {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 }
 
-/* xs */
-@media (max-width: 475px) {
+/* height*/
+
+@media (max-height: 620px) {
+  .login-introduction {
+    margin: 0px 25px 0px 25px;
+    font-size: 20px;
+    word-spacing: 3px;
+  }
+
+  .login-introduction strong {
+    font-size: 25px;
+  }
+  .login-content {
+    font-size: 16px;
+  }
+  .login-btn {
+    font-size: 32px;
+  }
 }

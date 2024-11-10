@@ -9,7 +9,7 @@ export default function ItemDescription({
   Playlists,
   Podcasts,
   Artists,
-  preferenceType,
+  preferenceTypeRes,
   randomItem,
 }) {
   const albumLength = randomItem?.tracks?.items?.length || 0;
@@ -26,21 +26,21 @@ export default function ItemDescription({
   };
 
   const itemsArrayLength = () => {
-    if (preferenceType && preferenceType === Albums) {
+    if (preferenceTypeRes && preferenceTypeRes === Albums) {
       return albumLength;
     } else if (
-      preferenceType &&
-      preferenceType == Playlists &&
+      preferenceTypeRes &&
+      preferenceTypeRes == Playlists &&
       randomItem.tracks
     ) {
       return randomItem.tracks.total;
-    } else if (preferenceType && preferenceType === Podcasts) {
+    } else if (preferenceTypeRes && preferenceTypeRes === Podcasts) {
       return;
     }
   };
 
   const itemContent = () => {
-    if (preferenceType && preferenceType === Albums) {
+    if (preferenceTypeRes && preferenceTypeRes === Albums) {
       return (
         <div>
           <p>
@@ -57,13 +57,13 @@ export default function ItemDescription({
           </p>
         </div>
       );
-    } else if (preferenceType && preferenceType === Playlists) {
+    } else if (preferenceTypeRes && preferenceTypeRes === Playlists) {
       return (
         <p>
           <strong>Number of tracks:</strong> {itemsArrayLength()} <br></br>
         </p>
       );
-    } else if (preferenceType && preferenceType === Podcasts) {
+    } else if (preferenceTypeRes && preferenceTypeRes === Podcasts) {
       return (
         <p className="desription-content-podcasts">
           {randomItem?.show?.description}
@@ -76,7 +76,7 @@ export default function ItemDescription({
     <Card className="description-container">
       <CardContent>
         <Typography className="description-heading">
-          {preferenceType === Albums || preferenceType === Playlists
+          {preferenceTypeRes === Albums || preferenceTypeRes === Playlists
             ? "Details"
             : "Description"}
         </Typography>

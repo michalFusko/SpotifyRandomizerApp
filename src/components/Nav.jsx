@@ -18,12 +18,13 @@ import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import "../styles/components/nav.css";
 
 export default function Nav({
-  setPreferenceType,
+  setPreferenceTypeRes,
   Albums,
   Playlists,
   Podcasts,
   Artists,
   setOffset,
+  preferenceTypeRes,
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -34,7 +35,6 @@ export default function Nav({
   const DrawerList = (
     <Box
       className="drawer-container"
-      sx={{}}
       role="presentation"
       onClick={toggleDrawer(false)}
     >
@@ -49,7 +49,8 @@ export default function Nav({
           <ListItem key={index} disablePadding>
             <ListItemButton
               onClick={() => {
-                setPreferenceType(preference.type);
+                setPreferenceTypeRes(preference.type);
+                console.log(preferenceTypeRes);
                 setOffset(0);
               }}
             >

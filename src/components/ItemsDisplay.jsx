@@ -9,22 +9,23 @@ const ItemsDisplay = ({
   Playlists,
   Podcasts,
   Artists,
-  preferenceType,
+  preferenceTypeRes,
   randomItem,
   setRandomItem,
   setOffset,
+  isLoadingAlbums,
 }) => {
   const reloadItems = () => {
-    if (preferenceType && preferenceType.total) {
-      const totalItems = preferenceType.total;
+    if (preferenceTypeRes && preferenceTypeRes.total) {
+      const totalItems = preferenceTypeRes.total;
       if (totalItems < 50) {
         setOffset(0);
       } else if (totalItems > 50) {
         setOffset(Math.floor(Math.random() * Math.max(0, totalItems - 50)));
       }
       const newrandomItem =
-        preferenceType.items[
-          Math.floor(Math.random() * preferenceType.items.length)
+        preferenceTypeRes.items[
+          Math.floor(Math.random() * preferenceTypeRes.items.length)
         ];
       setRandomItem(newrandomItem);
     }
@@ -41,11 +42,12 @@ const ItemsDisplay = ({
     >
       {randomItem && (
         <ItemCard
+          isLoadingAlbums={isLoadingAlbums}
           Albums={Albums}
           Playlists={Playlists}
           Podcasts={Podcasts}
           Artists={Artists}
-          preferenceType={preferenceType}
+          preferenceTypeRes={preferenceTypeRes}
           randomItem={randomItem}
           reloadItems={reloadItems}
         ></ItemCard>
@@ -57,7 +59,7 @@ const ItemsDisplay = ({
             Playlists={Playlists}
             Podcasts={Podcasts}
             Artists={Artists}
-            preferenceType={preferenceType}
+            preferenceTypeRes={preferenceTypeRes}
             randomItem={randomItem}
           ></ItemDescription>
           <PlayButton randomItem={randomItem}></PlayButton>

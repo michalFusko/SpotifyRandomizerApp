@@ -54,9 +54,10 @@
 }*/
 
 /* lg */
-@media (max-width: 1024px) {
+@media (max-width: 1024px), (max-height: 830px) {
   .description-container {
     margin-top: 20px;
+    height: 500px;
   }
 
   .description-heading {
@@ -71,9 +72,9 @@
 }
 
 /* md */
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-height: 720px) {
   .description-container {
-    margin-top: 30px;
+    height: 400px;
   }
 
   .description-heading {
@@ -86,9 +87,14 @@
     line-height: 30px !important;
   }
 }
+@media (max-height: 700px) {
+  .desription-content-podcasts {
+    font-size: 11px;
+  }
+}
 
 /* sm */
-@media (max-width: 640px) {
+@media (max-width: 640px), (max-height: 670px) {
   .description-container {
     height: inherit;
     margin: 0;
