@@ -4,7 +4,7 @@
   position: relative;
   width: 100px;
   height: 100px;
-  margin-top: 20px;
+  margin-top: 0px 20px;
   box-shadow:
     0px 10px 15px rgba(25, 20, 20, 0.25),
     5px 0px 15px rgba(25, 20, 20, 0.25),
@@ -60,6 +60,7 @@
 @media (max-width: 640px), (max-height: 830px) {
   .play-btn-container {
     margin-top: 20px;
+    margin-bottom: 50px;
   }
 }
 
