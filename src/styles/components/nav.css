@@ -1,20 +1,19 @@
 .nav-container {
-  background-color: var(--clr-green);
+  background-color: var(--clr-black);
   margin-bottom: 5px;
-  border-bottom: solid 2px var(--clr-black);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .nav-btn {
-  color: black !important;
+  color: rgba(249, 246, 238, 0.75) !important;
   font-size: 1rem !important;
+  font-family: "Poppins", sans-serif;
 }
 
 .nav-btn-icon {
-  color: black !important;
-  padding: 10px 10px 10px 0px !important;
+  padding: 10px 10px 10px 5px !important;
 }
 
 .nav-img {
@@ -25,38 +24,45 @@
 
 .drawer-container {
   width: 300px;
-  background: black;
-  color: var(--clr-white);
+  background: var(--clr-black);
+  color: rgba(249, 246, 238, 0.8);
   height: 100%;
 }
 
 .drawer-heading {
-  font-family: helvetica;
-  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin-left: 5px;
+}
+
+.drawer-li-text span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 .drawer-icon {
-  color: var(--clr-white);
+  color: rgba(249, 246, 238, 0.8);
 }
 
 .drawer-divider {
-  background: var(--clr-white);
+  background: rgba(249, 246, 238, 0.8);
 }
 
 .drawer-icon-secondary {
-  color: var(--clr-white);
+  color: rgba(249, 246, 238, 0.8);
   margin-left: -5px;
 }
 
 .drawer-disclaimer {
   text-align: center;
-  color: #f9f6ee9f;
-  padding: 200px 10px 10px 10px;
-  overflow-wrap: anywhere;
+  color: rgba(249, 246, 238, 0.75);
+  padding: 150px 10px 10px 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .drawer-disclaimer-h1 {
-  font-size: 50px;
+  font-size: 30px;
   margin-bottom: 30px;
 }
 

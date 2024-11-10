@@ -57,7 +57,7 @@ export default function ItemDescription({
           </p>
         </div>
       );
-    } else if (preferenceType === Playlists) {
+    } else if (preferenceType && preferenceType === Playlists) {
       return (
         <p>
           <strong>Number of tracks:</strong> {itemsArrayLength()} <br></br>
@@ -76,7 +76,9 @@ export default function ItemDescription({
     <Card className="description-container">
       <CardContent>
         <Typography className="description-heading">
-          <strong>Details</strong>
+          {preferenceType === Albums || preferenceType === Playlists
+            ? "Details"
+            : "Description"}
         </Typography>
         <Typography className="description-content" component="div">
           {itemContent()}

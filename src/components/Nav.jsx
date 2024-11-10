@@ -15,7 +15,7 @@ import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
-import "../styles/components/navbar.css";
+import "../styles/components/nav.css";
 
 export default function Nav({
   setPreferenceType,
@@ -58,7 +58,10 @@ export default function Nav({
                   className="drawer-icon"
                 ></FontAwesomeIcon>
               </ListItemIcon>
-              <ListItemText primary={preference.name} />
+              <ListItemText
+                primary={preference.name}
+                className="drawer-li-text"
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -82,7 +85,7 @@ export default function Nav({
                 ></FontAwesomeIcon>
               </ListItemIcon>
 
-              <ListItemText primary={item.name} />
+              <ListItemText primary={item.name} className="drawer-li-text" />
             </ListItemButton>
           </ListItem>
         ))}

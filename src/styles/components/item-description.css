@@ -10,13 +10,28 @@
 }
 
 .description-heading {
-  font-size: 40px !important;
+  text-shadow: 0px 8px 15px rgba(25, 20, 20, 0.5);
+  font-size: 50px !important;
   padding-bottom: 20px !important;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 800 !important;
+  color: rgba(25, 20, 20, 0.9);
 }
 
 .description-content {
   font-size: 25px !important;
   line-height: 50px !important;
+  font-family: "Poppins", sans-serif !important;
+  color: rgba(25, 20, 20, 0.75);
+  text-shadow: 0px 5px 15px rgba(25, 20, 20, 0.3);
+}
+
+.description-content p {
+  font-weight: 300;
+}
+
+.description-content p strong {
+  font-weight: 600;
 }
 
 .desription-content-podcasts {
@@ -24,6 +39,7 @@
   overflow-wrap: anywhere;
   font-size: 15px;
   line-height: 15px;
+  font-weight: normal !important;
   width: inherit;
 }
 
