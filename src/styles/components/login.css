@@ -1,3 +1,13 @@
+.description-heading {
+  text-shadow: 0px 8px 15px rgba(25, 20, 20, 0.5);
+  color: rgba(25, 20, 20, 0.9);
+}
+
+.description-content {
+  color: rgba(25, 20, 20, 0.75);
+  text-shadow: 0px 5px 15px rgba(25, 20, 20, 0.3);
+}
+
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -15,11 +25,15 @@
   margin: 50px 250px 50px 250px;
   font-size: 32px;
   font-family: "Poppins", sans-serif;
+  color: rgba(25, 20, 20, 0.75);
+  text-shadow: 0px 5px 15px rgba(25, 20, 20, 0.3);
 }
 
-.login-introduction-strong {
+.login-introduction strong {
   font-size: 48px;
   font-weight: 500;
+  text-shadow: 0px 8px 15px rgba(25, 20, 20, 0.5);
+  color: rgba(25, 20, 20, 0.9);
 }
 
 .login-img {
@@ -30,15 +44,20 @@
 .login-content {
   font-family: "Poppins", sans-serif;
   font-size: 32px;
+  color: rgba(25, 20, 20, 0.75);
+  text-shadow: 0px 5px 15px rgba(25, 20, 20, 0.3);
 }
 
 .login-btn {
   font-family: "Poppins", sans-serif;
   background: var(--clr-green);
   color: var(--clr-black);
-  border: 1px solid var(--clr-black);
+  border: 1px solid rgba(25, 20, 20, 0.7);
   border-radius: 1rem;
-  box-shadow: 0 0 8px var(--clr-black);
+  box-shadow:
+    0px 10px 10px rgba(25, 20, 20, 0.25),
+    5px 0px 15px rgba(25, 20, 20, 0.25),
+    -10px 0px 15px rgba(25, 20, 20, 0.25);
   font-size: 3rem;
   padding: 4px 16px 4px 16px;
   cursor: pointer;
