@@ -9,7 +9,8 @@ export default function ItemDescription({
   Playlists,
   Podcasts,
   Artists,
-  preferenceTypeRes,
+  preferenceType,
+  response,
   randomItem,
 }) {
   const albumLength = randomItem?.tracks?.items?.length || 0;
@@ -26,21 +27,21 @@ export default function ItemDescription({
   };
 
   const itemsArrayLength = () => {
-    if (preferenceTypeRes && preferenceTypeRes === Albums) {
+    if (response && preferenceType === "Albums") {
       return albumLength;
     } else if (
-      preferenceTypeRes &&
-      preferenceTypeRes == Playlists &&
+      response &&
+      preferenceType === "Playlists" &&
       randomItem.tracks
     ) {
       return randomItem.tracks.total;
-    } else if (preferenceTypeRes && preferenceTypeRes === Podcasts) {
+    } else if (response && preferenceType === "Podcasts") {
       return;
     }
   };
 
   const itemContent = () => {
-    if (preferenceTypeRes && preferenceTypeRes === Albums) {
+    if (response && preferenceType === "Albums") {
       return (
         <div>
           <p>
@@ -57,13 +58,13 @@ export default function ItemDescription({
           </p>
         </div>
       );
-    } else if (preferenceTypeRes && preferenceTypeRes === Playlists) {
+    } else if (response && preferenceType === "Playlists") {
       return (
         <p>
           <strong>Number of tracks:</strong> {itemsArrayLength()} <br></br>
         </p>
       );
-    } else if (preferenceTypeRes && preferenceTypeRes === Podcasts) {
+    } else if (response && preferenceType === "Podcasts") {
       return (
         <p className="desription-content-podcasts">
           {randomItem?.show?.description}
@@ -76,7 +77,7 @@ export default function ItemDescription({
     <Card className="description-container">
       <CardContent>
         <Typography className="description-heading">
-          {preferenceTypeRes === Albums || preferenceTypeRes === Playlists
+          {preferenceType === "Albums" || preferenceType === "Playlists"
             ? "Details"
             : "Description"}
         </Typography>

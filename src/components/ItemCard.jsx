@@ -9,28 +9,17 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import "../styles/components/item-card.css";
 
 export default function ItemCard({
-  Albums,
-  Playlists,
-  Podcasts,
-  Artists,
-  preferenceTypeRes,
+  preferenceType,
+  response,
   randomItem,
   reloadItems,
 }) {
   const nameOfCreator = () => {
-    if (
-      preferenceTypeRes &&
-      preferenceTypeRes == Albums &&
-      randomItem?.artists?.[0]
-    ) {
+    if (response && preferenceType === "Albums" && randomItem?.artists?.[0]) {
       return randomItem.artists[0].name;
-    } else if (preferenceTypeRes && preferenceTypeRes == Playlists) {
+    } else if (response && preferenceType === "Playlists") {
       return `Created by:${randomItem.owner?.display_name || "undefined"}`;
-    } else if (
-      preferenceTypeRes &&
-      preferenceTypeRes == Podcasts &&
-      randomItem.show
-    ) {
+    } else if (response && preferenceType == "Podcasts" && randomItem.show) {
       return randomItem.show.publisher;
     }
   };

@@ -17,15 +17,7 @@ import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import "../styles/components/nav.css";
 
-export default function Nav({
-  setPreferenceTypeRes,
-  Albums,
-  Playlists,
-  Podcasts,
-  Artists,
-  setOffset,
-  preferenceTypeRes,
-}) {
+export default function Nav({ setOffset, setPreferenceType }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -41,16 +33,15 @@ export default function Nav({
       <h1 className="drawer-heading">My library</h1>
       <List>
         {[
-          { name: "Albums", icon: faCompactDisc, type: Albums },
-          { name: "Playlists", icon: faHeadphones, type: Playlists },
-          { name: "Podcasts", icon: faMicrophone, type: Podcasts },
-          { name: "Artists", icon: faPerson, type: Artists },
+          { name: "Albums", icon: faCompactDisc },
+          { name: "Playlists", icon: faHeadphones },
+          { name: "Podcasts", icon: faMicrophone },
+          { name: "Artists", icon: faPerson },
         ].map((preference, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton
               onClick={() => {
-                setPreferenceTypeRes(preference.type);
-                console.log(preferenceTypeRes);
+                setPreferenceType(preference.name);
                 setOffset(0);
               }}
             >

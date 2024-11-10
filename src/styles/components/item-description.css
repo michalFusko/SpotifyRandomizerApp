@@ -69,12 +69,19 @@
     font-size: 20px !important;
     line-height: 40px !important;
   }
+  .desription-content-podcasts {
+    font-size: 13px !important;
+  }
 }
 
 /* md */
 @media (max-width: 768px), (max-height: 720px) {
   .description-container {
-    height: 400px;
+    height: 500px;
+    margin: 0;
+  }
+  .description-container div {
+    padding: 0;
   }
 
   .description-heading {
@@ -86,10 +93,9 @@
     font-size: 15px !important;
     line-height: 30px !important;
   }
-}
-@media (max-height: 700px) {
   .desription-content-podcasts {
-    font-size: 11px;
+    font-size: 11px !important;
+    width: 350px;
   }
 }
 
