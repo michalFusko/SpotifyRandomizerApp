@@ -55,7 +55,7 @@ const App = () => {
     } else {
       setRandomItem(null);
     }
-    setOffset(0);
+    console.log(offset);
   }, [preferenceType]);
 
   if (errorAlbums || errorPlaylists || errorPodcasts || errorArtists)
@@ -76,6 +76,7 @@ const App = () => {
         Podcasts={Podcasts}
         Artists={Artists}
         setPreferenceType={setPreferenceType}
+        setOffset={setOffset}
       ></Nav>
       <ItemsDisplay
         Albums={Albums}

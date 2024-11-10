@@ -23,6 +23,7 @@ export default function Nav({
   Playlists,
   Podcasts,
   Artists,
+  setOffset,
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -49,6 +50,7 @@ export default function Nav({
             <ListItemButton
               onClick={() => {
                 setPreferenceType(preference.type);
+                setOffset(0);
               }}
             >
               <ListItemIcon>
