@@ -10,7 +10,7 @@ const PlayButton = ({ randomItem, preferenceType }) => {
     } else if (preferenceType === "Playlists") {
       return `${baseUrl}playlist/${randomItem.id}`;
     } else if (preferenceType === "Podcasts") {
-      return `${baseUrl}show/${randomItem.id}`;
+      return `${baseUrl}show/${randomItem.show.id}`;
     } else if (preferenceType === "Artists") {
       return `${baseUrl}artist/${randomItem.id}`;
     }

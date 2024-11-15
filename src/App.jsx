@@ -112,6 +112,7 @@ const App = () => {
       setRandomItem(null);
     }
   }, [response]);
+  console.log(Podcasts);
 
   if (errorAlbums || errorPlaylists || errorPodcasts || errorArtists)
     return <Login className="login"></Login>;
