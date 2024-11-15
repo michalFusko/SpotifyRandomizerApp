@@ -5,10 +5,6 @@ import Typography from "@mui/material/Typography";
 import "../styles/components/item-description.css";
 
 export default function ItemDescription({
-  Albums,
-  Playlists,
-  Podcasts,
-  Artists,
   preferenceType,
   response,
   randomItem,
@@ -70,6 +66,34 @@ export default function ItemDescription({
           {randomItem?.show?.description}
         </p>
       );
+    } else if (response && preferenceType === "Artists") {
+      return (
+        <div>
+          <p>
+            <strong>Popularity:</strong> {randomItem.popularity}/100
+          </p>
+          <p>
+            <strong>Followers:</strong> {randomItem.followers?.total}
+          </p>
+          <p>
+            <strong>Genres:</strong>{" "}
+            {randomItem.genres?.length > 0 ? (
+              randomItem.genres.map((genre, index) => {
+                return (
+                  <span key={index}>
+                    {genre}
+                    {index < randomItem.genres?.length - 1 && (
+                      <strong>, </strong>
+                    )}
+                  </span>
+                );
+              })
+            ) : (
+              <span>undefined</span>
+            )}
+          </p>
+        </div>
+      );
     }
   };
 
@@ -77,7 +101,9 @@ export default function ItemDescription({
     <Card className="description-container">
       <CardContent>
         <Typography className="description-heading">
-          {preferenceType === "Albums" || preferenceType === "Playlists"
+          {preferenceType === "Albums" ||
+          preferenceType === "Playlists" ||
+          preferenceType === "Artists"
             ? "Details"
             : "Description"}
         </Typography>

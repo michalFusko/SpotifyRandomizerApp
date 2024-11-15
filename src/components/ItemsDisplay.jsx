@@ -5,19 +5,16 @@ import ItemDescription from "./ItemDescription";
 import "../styles/components/items-display.css";
 
 const ItemsDisplay = ({
-  Albums,
-  Playlists,
-  Podcasts,
-  Artists,
   setOffset,
   preferenceType,
   setPreferenceType,
   response,
   randomItem,
   setRandomItem,
+  artistsResponse,
 }) => {
   const reloadItems = () => {
-    if (response && response.total) {
+    if (response && preferenceType !== "Artists") {
       const totalItems = response.total;
       if (totalItems < 50) {
         setOffset(0);
@@ -27,7 +24,12 @@ const ItemsDisplay = ({
       const newrandomItem =
         response.items[Math.floor(Math.random() * response.items.length)];
       setRandomItem(newrandomItem);
+    } else if (artistsResponse && preferenceType === "Artists") {
+      const newrandomItem =
+        artistsResponse[Math.floor(Math.random() * artistsResponse.length)];
+      setRandomItem(newrandomItem);
     }
+    console.log(randomItem);
   };
 
   return (
@@ -44,15 +46,14 @@ const ItemsDisplay = ({
       {randomItem && (
         <div className="main-description-container">
           <ItemDescription
-            Albums={Albums}
-            Playlists={Playlists}
-            Podcasts={Podcasts}
-            Artists={Artists}
             preferenceType={preferenceType}
             response={response}
             randomItem={randomItem}
           ></ItemDescription>
-          <PlayButton randomItem={randomItem}></PlayButton>
+          <PlayButton
+            randomItem={randomItem}
+            preferenceType={preferenceType}
+          ></PlayButton>
         </div>
       )}
     </div>

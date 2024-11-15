@@ -34,8 +34,8 @@ export const Api = createApi({
         `shows?limit=${limit}&offset=${offset}`,
     }),
     getUserArtists: builder.query({
-      query: ({ limit = 50, offset = 0 }) =>
-        `following?type=artist?limit=${limit}&offset=${offset}`,
+      query: ({ limit = 50, id = "" }) =>
+        `following?type=artist&limit=${limit}&after=${id}`,
     }),
   }),
 });

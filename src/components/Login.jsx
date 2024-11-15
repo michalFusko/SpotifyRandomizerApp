@@ -1,9 +1,18 @@
 import "../styles/components/login.css";
 
 const Login = () => {
-  const YOUR_CLIENT_ID = "11be729c8a7142abba52c439912f4892";
-  const YOUR_REDIRECT_URI = "https://randomizer-app.vercel.app/";
-  const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${YOUR_CLIENT_ID}&response_type=token&redirect_uri=${YOUR_REDIRECT_URI}&scope=user-library-read`;
+  const CLIENT_ID = "11be729c8a7142abba52c439912f4892";
+  const REDIRECT_URI = "http://localhost:5173/";
+  // const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URI}&scope=user-library-read`;
+  const SCOPES = [
+    "user-follow-read",
+    "user-library-read",
+    "playlist-read-private",
+    "playlist-read-collaborative",
+  ];
+  const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPES.join(
+    "%20",
+  )}&response_type=token&show_dialog=true`;
 
   const redirectToSpotify = () => {
     window.location = AUTH_URL;

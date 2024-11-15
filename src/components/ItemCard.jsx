@@ -18,9 +18,11 @@ export default function ItemCard({
     if (response && preferenceType === "Albums" && randomItem?.artists?.[0]) {
       return randomItem.artists[0].name;
     } else if (response && preferenceType === "Playlists") {
-      return `Created by:${randomItem.owner?.display_name || "undefined"}`;
+      return `Created by: ${randomItem.owner?.display_name}`;
     } else if (response && preferenceType == "Podcasts" && randomItem.show) {
       return randomItem.show.publisher;
+    } else if (response && preferenceType === "Artists") {
+      return; // due to styles name is displayed in item name in artists case
     }
   };
 
@@ -45,7 +47,7 @@ export default function ItemCard({
         className="card-image"
         component="img"
         image={itemImage()}
-        alt="Album cover"
+        alt="Cover"
       />
       <Box className="card-content-container">
         <CardContent className="card-content">
@@ -62,7 +64,7 @@ export default function ItemCard({
           </Typography>
         </CardContent>
         <Box className="card-icon-container">
-          <IconButton onClick={reloadItems} aria-label="play/pause">
+          <IconButton onClick={reloadItems} aria-label="reload">
             <FontAwesomeIcon className="card-icon" icon={faRotateRight} />
           </IconButton>
         </Box>

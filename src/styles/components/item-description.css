@@ -1,6 +1,6 @@
 .description-container {
   width: 400px;
-  height: 600px;
+  max-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@
 @media (max-width: 1024px), (max-height: 830px) {
   .description-container {
     margin-top: 20px;
-    height: 500px;
+    max-height: 500px;
   }
 
   .description-heading {
@@ -77,7 +77,6 @@
 /* md */
 @media (max-width: 768px), (max-height: 720px) {
   .description-container {
-    height: 500px;
     margin: 0;
   }
   .description-container div {

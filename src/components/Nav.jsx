@@ -66,8 +66,8 @@ export default function Nav({ setOffset, setPreferenceType }) {
         {[
           { name: "Albums", icon: faCompactDisc, secondaryIcon: faDice },
           { name: "Playlists", icon: faHeadphones, secondaryIcon: faDice },
-          { name: "Artists", icon: faPerson, secondaryIcon: faDice },
           { name: "Podcasts", icon: faMicrophone, secondaryIcon: faDice },
+          { name: "Artists", icon: faPerson, secondaryIcon: faDice },
         ].map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
@@ -108,7 +108,7 @@ export default function Nav({ setOffset, setPreferenceType }) {
         />
         I want to choose from...
       </Button>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <Drawer open={open} onClose={toggleDrawer(false)} className="nav-open">
         {DrawerList}
       </Drawer>
       <img src="/spotify.png" className="nav-img" />

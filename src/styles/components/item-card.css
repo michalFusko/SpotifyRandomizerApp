@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 100px 0 0;
+  justitfy-content:
+  margin: 0 100px 0 0;
   border-radius: 25px !important;
   background: rgba(25, 20, 20, 0.1) !important;
   box-shadow:
@@ -16,7 +17,7 @@
 
 .card-image {
   width: 450px;
-  min-height: 450px;
+  height: 450px;
 }
 
 .card-content-container {
@@ -28,6 +29,7 @@
 }
 
 .card-content {
+  max-height: 80%;
   flex: 1 1 auto;
 }
 
@@ -61,7 +63,7 @@
 /* lg */
 @media (max-width: 1024px), (max-height: 830px) {
   .card-container {
-    margin: 50px 0px 0 0;
+    margin: 0px 0px 0 0;
     width: 350px;
     height: 550px;
   }
@@ -81,7 +83,7 @@
   .card-container {
     width: 250px;
     height: 450px;
-    margin: 10px 0px 0 0;
+    margin: 10px 0px 30px 0;
   }
   .card-image {
     min-height: 300px;

@@ -2,9 +2,9 @@ import Login from "./components/Login";
 import Nav from "./components/Nav";
 import {
   useGetUserAlbumsQuery,
+  useLazyGetUserArtistsQuery,
   useGetUserPlaylistsQuery,
   useGetUserPodcastsQuery,
-  useLazyGetUserArtistsQuery,
 } from "./api/api";
 import { useState, useEffect } from "react";
 import ItemsDisplay from "./components/ItemsDisplay";
@@ -12,28 +12,57 @@ import ItemsDisplay from "./components/ItemsDisplay";
 const App = () => {
   const [offset, setOffset] = useState(0);
   const [randomItem, setRandomItem] = useState(null);
+  const [preferenceType, setPreferenceType] = useState("Albums");
+  const [response, setResponse] = useState();
+  const [artistsResponse, setArtistsResponse] = useState([]);
+  const limit = 50;
   const {
     data: Albums,
     error: errorAlbums,
     isLoading: isLoadingAlbums,
-  } = useGetUserAlbumsQuery({ limit: 50, offset });
-  const [preferenceType, setPreferenceType] = useState("Albums");
-  const [response, setResponse] = useState();
+  } = useGetUserAlbumsQuery({ limit, offset });
   const {
     data: Playlists,
     error: errorPlaylists,
     isLoading: isLoadingPlaylists,
-  } = useGetUserPlaylistsQuery({ limit: 50, offset });
+  } = useGetUserPlaylistsQuery({ limit, offset });
   const {
     data: Podcasts,
     error: errorPodcasts,
     isLoading: isLoadingPodcasts,
-  } = useGetUserPodcastsQuery({ limit: 50, offset });
-  const {
-    data: Artists,
-    error: errorArtists,
-    isLoading: isLoadingArtists,
-  } = useLazyGetUserArtistsQuery({ limit: 50, offset }); // XXX endpoint doesnt support offset, but with "after" i can paginate XXX
+  } = useGetUserPodcastsQuery({ limit, offset });
+  const [
+    fetchArtists,
+    { data: Artists, error: errorArtists, isLoading: isLoadingArtists },
+  ] = useLazyGetUserArtistsQuery();
+
+  //function to make an array of all artists to randomize from because endpoint is designed to paginate
+  const fetchAllArtists = async () => {
+    let allArtists = [];
+    let lastArtistId = "";
+    let moreArtists = true;
+
+    while (moreArtists) {
+      const artistsData = await fetchArtists({
+        limit,
+        id: lastArtistId,
+      }).unwrap();
+
+      if (moreArtists) {
+        allArtists = [...allArtists, ...artistsData.artists.items];
+        lastArtistId =
+          artistsData.artists.items[artistsData.artists.items.length - 1].id;
+        moreArtists = artistsData.artists.items.length === limit;
+      } else {
+        moreArtists = false;
+      }
+    }
+    setArtistsResponse(allArtists);
+  };
+  //calling function to create array of artists
+  useEffect(() => {
+    fetchAllArtists();
+  }, []);
 
   useEffect(() => {
     switch (preferenceType) {
@@ -47,15 +76,20 @@ const App = () => {
         setResponse(Podcasts);
         break;
       case "Artists":
-        setResponse(Artists);
+        setResponse(artistsResponse);
         break;
       default:
         setResponse(null);
     }
   }, [preferenceType, Albums, Playlists, Podcasts, Artists]);
 
+  //initial random item on swtich or load
   useEffect(() => {
-    if (response?.items && response.items.length > 0) {
+    if (
+      response &&
+      preferenceType !== "Artists" &&
+      response?.items.length > 0
+    ) {
       const randomItem =
         response.items[Math.floor(Math.random() * response.items.length)];
 
@@ -65,7 +99,15 @@ const App = () => {
         setRandomItem(randomItem);
       } else if (preferenceType === "Podcasts") {
         setRandomItem(randomItem);
-      }
+      } //bro i swear i updated the artists case condition 3 times today if this comment is not here next time im being robbed
+    } else if (
+      response &&
+      preferenceType === "Artists" &&
+      response.length > 0
+    ) {
+      const randomItem =
+        response[Math.floor(Math.random() * artistsResponse.length)];
+      setRandomItem(randomItem);
     } else {
       setRandomItem(null);
     }
@@ -85,16 +127,13 @@ const App = () => {
     <>
       <Nav setOffset={setOffset} setPreferenceType={setPreferenceType}></Nav>
       <ItemsDisplay
-        Albums={Albums}
-        Playlists={Playlists}
-        Podcasts={Podcasts}
-        Artists={Artists}
         setOffset={setOffset}
         preferenceType={preferenceType}
         setPreferenceType={setPreferenceType}
         response={response}
         randomItem={randomItem}
         setRandomItem={setRandomItem}
+        artistsResponse={artistsResponse}
       ></ItemsDisplay>
     </>
   );
